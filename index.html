@@ -436,39 +436,39 @@
 /** 데이터 테이블 (단위: 만원) */
 const CANCER_BASIC = {
   "4천": { immune: 1000, target: 1000, proton: 1000, davinci_cancer: 500,
-           surgery_cancer: 500, radiation_cancer: 500, radiation_minor: 100,
-           drug_cancer: 500, drug_minor: 100, intensity: 500 },
+           surgery_cancer: 500, radiation_cancer: 500, 
+           drug_cancer: 500,  intensity: 500 },
   "8천": { immune: 2000, target: 2000, proton: 2000, davinci_cancer: 750,
-           surgery_cancer: 750, radiation_cancer: 750, radiation_minor: 150,
-           drug_cancer: 750, drug_minor: 150, intensity: 750 },
+           surgery_cancer: 750, radiation_cancer: 750, 
+           drug_cancer: 750, intensity: 750 },
   "1억": { immune: 3000, target: 3000, proton: 3000, davinci_cancer: 1000,
-           surgery_cancer: 1000, radiation_cancer: 1000, radiation_minor: 200,
-           drug_cancer: 1000, drug_minor: 200, intensity: 1000 } };
+           surgery_cancer: 1000, radiation_cancer: 1000,
+           drug_cancer: 1000, intensity: 1000 } };
 const CANCER_SIMPLE = {
   "7천": { immune: 1000, target: 1000, proton: 1000,
-           surgery_cancer: 1000, radiation_cancer: 1000, radiation_minor: 200,
-           drug_cancer: 1000, drug_minor: 200, intensity: 0, davinci_cancer: 0 },
+           surgery_cancer: 1000, radiation_cancer: 1000, 
+           drug_cancer: 1000, intensity: 0, davinci_cancer: 0 },
   "5천": { immune: 750, target: 750, proton: 750,
-           surgery_cancer: 750, radiation_cancer: 750, radiation_minor: 150,
-           drug_cancer: 750, drug_minor: 150, intensity: 0, davinci_cancer: 0 },
+           surgery_cancer: 750, radiation_cancer: 750, 
+           drug_cancer: 750, intensity: 0, davinci_cancer: 0 },
   "3천": { immune: 500, target: 500, proton: 500,
-           surgery_cancer: 500, radiation_cancer: 500, radiation_minor: 100,
-           drug_cancer: 500, drug_minor: 100, intensity: 0, davinci_cancer: 0 },
+           surgery_cancer: 500, radiation_cancer: 500, 
+           drug_cancer: 500, intensity: 0, davinci_cancer: 0 },
   "1천": { immune: 250, target: 250, proton: 250,
-           surgery_cancer: 250, radiation_cancer: 250, radiation_minor: 50,
-           drug_cancer: 250, drug_minor: 50, intensity: 0, davinci_cancer: 0 } };
+           surgery_cancer: 250, radiation_cancer: 250, 
+           drug_cancer: 250, intensity: 0, davinci_cancer: 0 } };
 const NON_TREAT = {
   "1억": { immune: 3000, target: 3000, proton: 3000, davinci_cancer: 1000,
-           surgery_cancer: 1000, radiation_cancer: 1000, radiation_minor: 200,
-           drug_cancer: 1000, drug_minor: 200, intensity: 0 },
+           surgery_cancer: 1000, radiation_cancer: 1000, 
+           drug_cancer: 1000, intensity: 0 },
   "7천": { immune: 2000, target: 2000, proton: 2000, davinci_cancer: 750,
-           surgery_cancer: 750, radiation_cancer: 750, radiation_minor: 150,
-           drug_cancer: 750, drug_minor: 150, intensity: 0 },
+           surgery_cancer: 750, radiation_cancer: 750,
+           drug_cancer: 750, intensity: 0 },
   "4천": { immune: 1000, target: 1000, proton: 1000, davinci_cancer: 500,
-           surgery_cancer: 500, radiation_cancer: 500, radiation_minor: 100,
-           drug_cancer: 500, drug_minor: 100, intensity: 0 } };
+           surgery_cancer: 500, radiation_cancer: 500, 
+           drug_cancer: 500, intensity: 0 } };
 const ORDER = [
-  { key:"면역항암(최대)", type:"max" },
+  { key:"면역항암", type:"max" },
   { key:"표적항암(최대)", type:"max" },
   { key:"양성자(최대)", type:"max" },
   { key:"다빈치(암)(최대)", type:"max" },  { key:"세기조절(최대)", type:"max" },
@@ -504,9 +504,7 @@ function calcAll(c, n) {
 
   out["수술(암)(매회)"] = [(c.surgery_cancer||0), (n.surgery_cancer||0), (c.surgery_cancer||0)+(n.surgery_cancer||0)];
   out["항암방사선(암)(각각)"] = [(c.radiation_cancer||0), (n.radiation_cancer||0), (c.radiation_cancer||0)+(n.radiation_cancer||0)];
-  out["항암방사선(기타/갑상선)(각각)"] = [(c.radiation_minor||0), (n.radiation_minor||0), (c.radiation_minor||0)+(n.radiation_minor||0)];
   out["항암약물(암)(각각)"] = [(c.drug_cancer||0), (n.drug_cancer||0), (c.drug_cancer||0)+(n.drug_cancer||0)];
-  out["항암약물(기타/갑상선)(각각)"] = [(c.drug_minor||0), (n.drug_minor||0), (c.drug_minor||0)+(n.drug_minor||0)];
 
   return out;
 }
