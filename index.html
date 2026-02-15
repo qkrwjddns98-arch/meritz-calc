@@ -327,6 +327,27 @@
       flex: 0 0 auto;
     }
 
+  
+    /* Summary line refinement (no monospace) */
+    .summarytext{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+      font-size:12px;
+      color: var(--text);
+      letter-spacing: -0.1px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .summarytext b{font-weight:800}
+
   </style>
 </head>
 <body data-view="auto">
@@ -381,7 +402,7 @@
           </div>
 
           <div class="summarybar">
-            <div id="summaryText">[선택] -</div>
+            <div id="summaryText" class="summarytext">[선택] -</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end; align-items:center;">
               <span class="tag max">최대(묶음)</span>
               <span class="tag each">각각/매회</span>
