@@ -632,8 +632,7 @@ function render(){
   rows.forEach(r=>{
     const labelText = r.key.replace(/\(최대\)/g, "").trim();
     const rightPill = (r.type === "max") ? '<span class="maxpill">최대</span>' : "";
-   const eachTag =
-  (r.type === "max" || labelText.includes("항암방사선") || labelText.includes("항암약물"))
+    const eachTag = (r.type === "max" || labelText.includes("항암방사선") || labelText.includes("항암약물"))
   ? ""
   : '<span class="tag each">각각/매회</span>';
 
